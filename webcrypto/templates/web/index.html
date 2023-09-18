@@ -1,0 +1,33 @@
+{% load static %}
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <meta name="msapplication-TileColor" content="#000" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+  <title>Главная страница юзеров</title>
+  <!--[if IE]>
+   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  {% comment %} <style>
+   article, aside, details, figcaption, figure, footer,header,
+   hgroup, menu, nav, section { display: block; }
+  </style> {% endcomment %}
+ </head>
+ <body>
+  <p><h1>ТГ-бот содержит следующий список пользователей:</h1></p>
+  <p>{% for one_user in all_users %}
+    <ul>
+        <li>
+        Пользователь: {{ one_user.username }}, 
+        id: {{ one_user.telegram_id }}, 
+        телефон: {{ one_user.phone_number }}
+        </li>
+    </ul>
+  </p>
+  {% comment %} <p>{{ post.text }}</p>    
+  <a href="">все записи группы</a>
+  {% if not forloop.last %}<hr>{% endif %} {% endcomment %}
+{% endfor %} 
+ </body>
+</html>
